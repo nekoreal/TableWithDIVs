@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CrossDaunBot Statistics</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header-section">
+                <div>
+                    <h2>
+                        CrossDaun
+                        <span class="text-sky">Users</span>
+                    </h2>
+                    <p class="text-grey">Мониторинг статистики заводчан</p>
+                </div>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-box"
+                    placeholder="Поиск пользователя..." />
+            </div>
+        </div>
+        <!-- <div class="switcher-box not-in-mobile">
+            <button id="alltime" class="switcher active">За все время</button>
+            <button id="allmonth" class="switcher">За месяц</button>
+        </div> -->
+        <div class="cards">
+            <div class="table-header not-in-mobile grid-row">
+                <div>
+                    <span class="text-sky white-born">ID</span>
+                </div>
+                <div>
+                    <span class="text-sky white-born">Фото</span>
+                </div>
+                <div>
+                    <span class="text-sky white-born">Имя</span>
+                </div>
+                <div class="align-center">
+                    <span class="text-sky white-born">Сообщений</span>
+                </div>
+                <div class="align-center">
+                    <span class="text-sky white-born">Медиа</span>
+                </div>
+                <div class="align-center">
+                    <span class="text-sky white-born">Стикеров</span>
+                </div>
+                <div class="align-center">
+                    <span class="text-sky white-born">nya</span>
+                </div>
+            </div>
+            <div class="card grid-row">
+                <span>#1</span>
+                <img
+                    class="avatar"
+                    src="https://i.pinimg.com/736x/6b/d2/77/6bd2774dd6539c047ebee670416bebc3.jpg" />
+                <span class="user-name text-blue">@Username1</span>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>💬 3</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span class="split-val">🖼️ 333</span>
+                        <div class="seperator"></div>
+                        <span class="split-val">🎥 33</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>💠 3</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>🐱 333</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card grid-row">
+                <span>#1</span>
+                <img
+                    class="avatar"
+                    src="https://i.pinimg.com/736x/6b/d2/77/6bd2774dd6539c047ebee670416bebc3.jpg" />
+                <span class="user-name text-blue">@Username1</span>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>💬 222</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span class="split-val">🖼️ 11</span>
+                        <div class="seperator"></div>
+                        <span class="split-val">🎥 11</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>💠 333</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>🐱 33</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card grid-row">
+                <span>#1</span>
+                <img
+                    class="avatar"
+                    src="https://i.pinimg.com/736x/6b/d2/77/6bd2774dd6539c047ebee670416bebc3.jpg" />
+                <span class="user-name text-blue">@Username1</span>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>💬 1</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span class="split-val">🖼️ 100</span>
+                        <div class="seperator"></div>
+                        <span class="split-val">🎥 100</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>💠 20</span>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <div class="split-box">
+                        <span>🐱 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Поиск (фильтрация)
+            document
+                .getElementById("searchInput")
+                .addEventListener("input", function () {
+                    const filter = this.value.toLowerCase();
+                    const rows = document.querySelectorAll("#tableBody tr");
+                    rows.forEach((row) => {
+                        row.style.display = row.innerText
+                            .toLowerCase()
+                            .includes(filter)
+                            ? ""
+                            : "none";
+                    });
+                });
+
+            // Сортировка
+            function sortTable(columnIndex) {
+                console.log("function called for column:", columnIndex);
+                const table = document.getElementById("usersTable");
+                const tbody = document.getElementById("tableBody");
+                const rows = Array.from(tbody.querySelectorAll("tr"));
+                const th = table.querySelectorAll("th")[columnIndex];
+
+                // Переключаем направление
+                const isAscending = !th.classList.contains("sort-asc");
+
+                // Чистим стили заголовков
+                table
+                    .querySelectorAll("th")
+                    .forEach((h) =>
+                        h.classList.remove("sort-asc", "sort-desc"),
+                    );
+                th.classList.add(isAscending ? "sort-asc" : "sort-desc");
+
+                rows.sort((a, b) => {
+                    let valA = a.children[columnIndex].innerText.trim();
+                    let valB = b.children[columnIndex].innerText.trim();
+
+                    // Если колонка не текстовая (все, кроме "Пользователь" под индексом 2)
+                    if (columnIndex !== 2) {
+                        // Выдираем все цифры. Если в ячейке "🖼️ 10 | 🎥 5", получится "105" или "15"
+                        // Для колонок с одним числом это превратит "💬 100" в 100
+                        valA = parseInt(valA.replace(/\D/g, "")) || 0;
+                        valB = parseInt(valB.replace(/\D/g, "")) || 0;
+
+                        console.log(valA, valB);
+                        return isAscending ? valA - valB : valB - valA;
+                    }
+
+                    // Для имен пользователей оставляем обычную строку
+                    return isAscending
+                        ? valA.localeCompare(valB)
+                        : valB.localeCompare(valA);
+                });
+
+                // Очищаем и закидываем обратно
+                tbody.innerHTML = "";
+                rows.forEach((row) => tbody.appendChild(row));
+            }
+        </script>
+    </body>
+</html>

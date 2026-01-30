@@ -1,0 +1,186 @@
+/*colors*/
+
+.text-grey {
+    color: rgb(135, 133, 133);
+}
+
+.text-sky {
+    color: #00f2ff;
+}
+
+.text-blue {
+    color: rgb(88, 166, 255);
+}
+
+/* hover'Ы */
+
+.white-born:hover {
+    color: #f0f6fc;
+    text-shadow: 0 0 15px #00f2ff;
+    transition: all 300ms;
+}
+
+.card:hover .user-name {
+    color: #f0f6fc;
+    text-shadow: 0 0 15px #00f2ff;
+    transition: all 300ms;
+}
+
+/*Вся херня*/
+
+:root {
+    --bg-dark: #0f111a;
+    --card-bg: #161b22; /* Серый фон карточки */
+    --accent: #00f2ff;
+    --text-muted: #a0a0a0; /* Более светлый текст описания */
+    --border: #30363d;
+    --glow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #f0f6fc;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center ; */
+
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+/* переключатель */
+
+/* таблица */
+
+.table-header {
+    background-color: rgb(28, 33, 40);
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.cards {
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+.card {
+    background-color: rgb(28, 33, 40);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-box {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    outline: none;
+    width: 300px;
+    transition: 0.3s;
+}
+
+.search-box:focus {
+    border-color: var(--accent);
+    box-shadow: var(--glow);
+}
+
+/* ai */
+
+.grid-row {
+    display: grid;
+    grid-template-columns: 40px 60px 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+}
+
+.split-val {
+    font-size: 14px;
+}
+.seperator {
+    width: 1px;
+    background-color: #444;
+}
+/* AI */
+
+.split-box {
+    display: inline-flex;
+    flex-direction: row;
+    border: 1.5px solid #444; /* Цвет внешней линии */
+    border-radius: 4px; /* Скругление углов */
+    overflow: hidden;
+    min-width: 60px; /* Минимальная ширина, чтобы текст не слипался */
+    align-self: center; /* Центрирование внутри card по вертикали */
+    align-content: center;
+    padding: 2px 4px;
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Общие стили для верхней и нижней части */
+.split-box span {
+    padding: 2px 8px;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+/* Для пк */
+
+@media (min-width: 748px) {
+    .cards {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+}
+
+/*Для мобилы*/
+
+@media (max-width: 748px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .header-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .search-box {
+        width: auto;
+    }
+
+    .not-in-mobile {
+        display: none;
+    }
+}
