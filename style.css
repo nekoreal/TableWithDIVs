@@ -12,6 +12,12 @@
     color: rgb(88, 166, 255);
 }
 
+/* fonts */
+
+.font-32 {
+    font-size: 32px;
+}
+
 /* hover'Ы */
 
 .white-born:hover {
@@ -24,6 +30,23 @@
     color: #f0f6fc;
     text-shadow: 0 0 15px #00f2ff;
     transition: all 300ms;
+}
+
+.card:hover .avatar {
+    box-shadow: var(--glow);
+    border-color: #00f2ff;
+    transform: scale(1.15) rotate(-15deg);
+    transition: all 300ms;
+}
+
+.card:hover .split-box {
+    transform: scale(1.1);
+    box-shadow: var(--glow);
+    transition: all 300ms;
+}
+
+.card:hover {
+    background-color: rgb(28, 33, 40);
 }
 
 /*Вся херня*/
@@ -60,6 +83,31 @@ body {
 
 /* переключатель */
 
+.switcher-box {
+    margin-left: 10px;
+}
+
+.switcher {
+    background-color: rgb(28, 33, 40);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-radius: 12px 12px 0 0;
+    padding: 12px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    transition: all 2000ms;
+}
+.switcher.active {
+    border-color: #00f2ff;
+    box-shadow: #00f2ff 0 0 10px;
+}
+.switcher:active {
+    color: aqua;
+    text-shadow: #00f2ff 0 0 10px;
+    transition: all 100ms;
+}
+
 /* таблица */
 
 .table-header {
@@ -68,13 +116,22 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
-.cards {
+.cards-and-switcher {
     margin-inline: auto;
+}
+
+.cards {
     overflow: hidden;
+    position: relative;
 }
 
 .card {
-    background-color: rgb(28, 33, 40);
+    background-color: rgb(23, 27, 33);
+}
+
+.user-name {
+    font-size: 17px;
+    transition: all 300ms;
 }
 
 .avatar {
@@ -83,6 +140,7 @@ body {
     border-radius: 10px;
     border: 1px solid var(--border);
     object-fit: cover;
+    transition: all 300ms;
 }
 
 .header-section {
@@ -103,6 +161,7 @@ body {
     outline: none;
     width: 300px;
     transition: 0.3s;
+    font-size: 12px;
 }
 
 .search-box:focus {
@@ -132,13 +191,15 @@ body {
 .split-box {
     display: inline-flex;
     flex-direction: row;
-    border: 1.5px solid #444; /* Цвет внешней линии */
+    border: 0px solid #444; /* Цвет внешней линии */
+    background-color: rgb(13, 17, 23);
     border-radius: 4px; /* Скругление углов */
     overflow: hidden;
     min-width: 60px; /* Минимальная ширина, чтобы текст не слипался */
     align-self: center; /* Центрирование внутри card по вертикали */
     align-content: center;
     padding: 2px 4px;
+    transition: all 300ms;
 }
 
 .align-center {
@@ -157,6 +218,11 @@ body {
 /* Для пк */
 
 @media (min-width: 748px) {
+    .header-text {
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+    }
     .cards {
         border: 1px solid var(--border);
         border-radius: 12px;
