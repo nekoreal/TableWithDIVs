@@ -9,195 +9,264 @@
     </head>
     <body>
         <div class="container">
-            <div class="header-section">
+            <div class="header-section align-center">
                 <div class="header-text">
                     <h2 class="font-32">
                         CrossDaun
                         <span class="text-sky">Users</span>
                     </h2>
-                    <p class="text-grey">Мониторинг статистики заводчан</p>
                 </div>
+            </div>
+        </div>
+
+        <div class="cards-and-switcher">
+            <div class="day-cards">
+                <div class="day-card">
+                    <div class="day-label">Всего сообщений</div>
+                    <div class="day-value" id="totalUsers">1,234</div>
+                </div>
+                <div class="day-card">
+                    <div class="day-label">Сообщений за сегодня</div>
+                    <div class="day-value" id="newToday">56</div>
+                </div>
+                <div class="day-card day-grid day-username">
+                    <div class="day-label">Топ месяца</div>
+                    <img class="day-avatar" src="/koti.jpg" />
+                    <div class="day-value text-blue" id="activeToday">
+                        @batrasov
+                    </div>
+                </div>
+            </div>
+            <div class="align-right search-section">
                 <input
                     type="text"
                     id="searchInput"
                     class="search-box"
                     placeholder="Поиск пользователя..." />
             </div>
-        </div>
-        <div class="cards-and-switcher">
-            <div class="switcher-box not-in-mobile">
+            <div class="switcher-box">
                 <button id="alltime" class="switcher active">
                     За все время
                 </button>
                 <button id="allmonth" class="switcher">За месяц</button>
             </div>
             <div class="cards">
-                <div class="table-header not-in-mobile grid-row">
+                <div class="table-header grid-row">
                     <div>
-                        <span class="text-sky white-born">ID</span>
+                        <span onclick="sortTable(0)" class="text-sky white-born"
+                            >ID</span
+                        >
                     </div>
                     <div>
-                        <span class="text-sky">Фото</span>
+                        <span
+                            onclick="sortTable(1)"
+                            class="text-sky not-in-mobile"
+                            >Фото</span
+                        >
                     </div>
                     <div>
-                        <span class="text-sky white-born">ИМЯ</span>
+                        <span onclick="sortTable(2)" class="text-sky white-born"
+                            >Имя</span
+                        >
                     </div>
                     <div class="align-center">
-                        <span class="text-sky white-born">Сообщений</span>
+                        <span onclick="sortTable(3)" class="text-sky white-born"
+                            >Сообщений</span
+                        >
                     </div>
                     <div class="align-center">
-                        <span class="text-sky white-born">Медиа</span>
+                        <span onclick="sortTable(4)" class="text-sky white-born"
+                            >Медиа</span
+                        >
                     </div>
                     <div class="align-center">
-                        <span class="text-sky white-born">Стикеров</span>
+                        <span onclick="sortTable(5)" class="text-sky white-born"
+                            >Стикеров</span
+                        >
                     </div>
                     <div class="align-center">
-                        <span class="text-sky white-born">nya</span>
+                        <span onclick="sortTable(6)" class="text-sky white-born"
+                            >nya</span
+                        >
                     </div>
                 </div>
                 <div class="card grid-row">
-                    <span>#1</span>
+                    <div class="ID filterable sortable">
+                        <span>#2</span>
+                    </div>
                     <img class="avatar" src="/koti.jpg" />
-                    <span class="user-name text-blue">@piscopancer</span>
-                    <div class="align-center">
+                    <span
+                        class="user-info-mobile user-name text-blue filterable sortable"
+                        >@piscopancer</span
+                    >
+                    <div class="align-center msg sortable">
                         <div class="split-box">
-                            <span>💬 3</span>
+                            <span
+                                class="val-to-update"
+                                data-alltime="💬 523"
+                                data-month="💬 10"></span>
                         </div>
                     </div>
-                    <div class="align-center">
+                    <div class="align-center media sortable">
                         <div class="split-box">
-                            <span class="split-val">🖼️ 333</span>
+                            <span
+                                class="split-val val-to-update"
+                                data-alltime="🖼️ 3333"
+                                data-month="🖼️ 10"></span>
                             <div class="seperator"></div>
-                            <span class="split-val">🎥 33</span>
+                            <span
+                                class="split-val val-to-update"
+                                data-alltime="🎥 323"
+                                data-month="🎥 10"></span>
                         </div>
                     </div>
-                    <div class="align-center">
+                    <div class="align-center stickers sortable">
                         <div class="split-box">
-                            <span>💠 3</span>
+                            <span
+                                class="val-to-update"
+                                data-alltime="💠 223"
+                                data-month="💠 10"></span>
                         </div>
                     </div>
-                    <div class="align-center">
+                    <div class="align-center nya sortable">
                         <div class="split-box">
-                            <span>🐱 333</span>
+                            <span
+                                class="val-to-update"
+                                data-alltime="🐱 3313"
+                                data-month="🐱 10"></span>
                         </div>
                     </div>
                 </div>
                 <div class="card grid-row">
-                    <span>#1</span>
+                    <div class="ID filterable sortable">
+                        <span>#2</span>
+                    </div>
                     <img class="avatar" src="/koti.jpg" />
-                    <span class="user-name text-blue">@Username1</span>
-                    <div class="align-center">
+                    <span
+                        class="user-info-mobile user-name text-blue filterable sortable"
+                        >@piscopancer</span
+                    >
+                    <div class="align-center msg sortable">
                         <div class="split-box">
-                            <span>💬 222</span>
+                            <span
+                                class="val-to-update"
+                                data-alltime="💬 523"
+                                data-month="💬 10"></span>
                         </div>
                     </div>
-                    <div class="align-center">
+                    <div class="align-center media sortable">
                         <div class="split-box">
-                            <span class="split-val">🖼️ 11</span>
+                            <span
+                                class="split-val val-to-update"
+                                data-alltime="🖼️ 3333"
+                                data-month="🖼️ 10"></span>
                             <div class="seperator"></div>
-                            <span class="split-val">🎥 11</span>
+                            <span
+                                class="split-val val-to-update"
+                                data-alltime="🎥 323"
+                                data-month="🎥 10"></span>
                         </div>
                     </div>
-                    <div class="align-center">
+                    <div class="align-center stickers sortable">
                         <div class="split-box">
-                            <span>💠 333</span>
+                            <span
+                                class="val-to-update"
+                                data-alltime="💠 223"
+                                data-month="💠 10"></span>
                         </div>
                     </div>
-                    <div class="align-center">
+                    <div class="align-center nya sortable">
                         <div class="split-box">
-                            <span>🐱 33</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card grid-row">
-                    <span>#1</span>
-                    <img class="avatar" src="/koti.jpg" />
-                    <span class="user-name text-blue">@Username1</span>
-                    <div class="align-center">
-                        <div class="split-box">
-                            <span>💬 1</span>
-                        </div>
-                    </div>
-                    <div class="align-center">
-                        <div class="split-box">
-                            <span class="split-val">🖼️ 100</span>
-                            <div class="seperator"></div>
-                            <span class="split-val">🎥 100</span>
-                        </div>
-                    </div>
-                    <div class="align-center">
-                        <div class="split-box">
-                            <span>💠 20</span>
-                        </div>
-                    </div>
-                    <div class="align-center">
-                        <div class="split-box">
-                            <span>🐱 3</span>
+                            <span
+                                class="val-to-update"
+                                data-alltime="🐱 3313"
+                                data-month="🐱 10"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script>
-            // Поиск (фильтрация)
-            document
-                .getElementById("searchInput")
-                .addEventListener("input", function () {
-                    const filter = this.value.toLowerCase();
-                    const rows = document.querySelectorAll("#cards .card");
-                    rows.forEach((row) => {
-                        row.style.display = row.innerText
-                            .toLowerCase()
-                            .includes(filter)
-                            ? ""
-                            : "none";
+            // Ждем полной загрузки страницы
+            window.addEventListener("DOMContentLoaded", () => {
+                // --- 1. Поиск (фильтрация) ---
+                document
+                    .getElementById("searchInput")
+                    .addEventListener("input", function () {
+                        const filter = this.value.toLowerCase();
+                        const cards = document.querySelectorAll(".cards .card");
+
+                        cards.forEach((card) => {
+                            const searchableElements =
+                                card.querySelectorAll(".filterable");
+                            const matches = Array.from(searchableElements).some(
+                                (el) =>
+                                    el.textContent
+                                        .toLowerCase()
+                                        .includes(filter),
+                            );
+                            card.style.display = matches ? "" : "none";
+                        });
+                    });
+
+                // --- 2. Сортировка ---
+                let sortDirections = {};
+                window.sortTable = function (columnIndex) {
+                    // Делаем функцию глобальной для onclick
+                    const container = document.querySelector(".cards");
+                    const cards = Array.from(
+                        container.querySelectorAll(".card"),
+                    );
+
+                    sortDirections[columnIndex] = !sortDirections[columnIndex];
+                    const isAsc = sortDirections[columnIndex];
+
+                    cards.sort((a, b) => {
+                        let valA = a.children[columnIndex].textContent.trim();
+                        let valB = b.children[columnIndex].textContent.trim();
+
+                        if (columnIndex !== 2) {
+                            valA = parseInt(valA.replace(/\D/g, "")) || 0;
+                            valB = parseInt(valB.replace(/\D/g, "")) || 0;
+                            return isAsc ? valA - valB : valB - valA;
+                        }
+                        return isAsc
+                            ? valA.localeCompare(valB)
+                            : valB.localeCompare(valA);
+                    });
+
+                    cards.forEach((card) => container.appendChild(card));
+                };
+
+                // --- 3. Переключатель периодов и Инициализация ---
+                const switchButtons = document.querySelectorAll(".switcher");
+                const valuesToUpdate =
+                    document.querySelectorAll(".val-to-update");
+
+                // Функция обновления данных
+                function updatePeriod(periodType) {
+                    valuesToUpdate.forEach((el) => {
+                        const newValue = el.getAttribute(`data-${periodType}`);
+                        if (newValue) {
+                            el.textContent = newValue;
+                        }
+                    });
+                }
+
+                switchButtons.forEach((btn) => {
+                    btn.addEventListener("click", function () {
+                        switchButtons.forEach((b) =>
+                            b.classList.remove("active"),
+                        );
+                        this.classList.add("active");
+
+                        const period =
+                            this.id === "alltime" ? "alltime" : "month";
+                        updatePeriod(period);
                     });
                 });
-
-            // Сортировка
-            function sortTable(columnIndex) {
-                console.log("function called for column:", columnIndex);
-                const table = document.getElementById("usersTable");
-                const tbody = document.getElementById("tableBody");
-                const rows = Array.from(tbody.querySelectorAll("tr"));
-                const th = table.querySelectorAll("th")[columnIndex];
-
-                // Переключаем направление
-                const isAscending = !th.classList.contains("sort-asc");
-
-                // Чистим стили заголовков
-                table
-                    .querySelectorAll("th")
-                    .forEach((h) =>
-                        h.classList.remove("sort-asc", "sort-desc"),
-                    );
-                th.classList.add(isAscending ? "sort-asc" : "sort-desc");
-
-                rows.sort((a, b) => {
-                    let valA = a.children[columnIndex].innerText.trim();
-                    let valB = b.children[columnIndex].innerText.trim();
-
-                    // Если колонка не текстовая (все, кроме "Пользователь" под индексом 2)
-                    if (columnIndex !== 2) {
-                        // Выдираем все цифры. Если в ячейке "🖼️ 10 | 🎥 5", получится "105" или "15"
-                        // Для колонок с одним числом это превратит "💬 100" в 100
-                        valA = parseInt(valA.replace(/\D/g, "")) || 0;
-                        valB = parseInt(valB.replace(/\D/g, "")) || 0;
-
-                        console.log(valA, valB);
-                        return isAscending ? valA - valB : valB - valA;
-                    }
-
-                    // Для имен пользователей оставляем обычную строку
-                    return isAscending
-                        ? valA.localeCompare(valB)
-                        : valB.localeCompare(valA);
-                });
-
-                // Очищаем и закидываем обратно
-                tbody.innerHTML = "";
-                rows.forEach((row) => tbody.appendChild(row));
-            }
+                updatePeriod("alltime");
+            });
         </script>
     </body>
 </html>
